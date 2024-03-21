@@ -133,6 +133,18 @@ public class App {
             System.out.println("Situação da matricula: " + matriculas[i].situacaoDaMatricula);
         }
     }
+
+    private static void exibirAluno() {
+
+        for (int i = 0; i < quantidadeDeAlunos; i++) {
+            System.out.println("Cursos Cadastrados:");
+            System.out.println("Nome do Curso: " + cursos[i].nome);
+            System.out.println("Nome do Curso: " + cursos[i].nome);
+            System.out.println("Nome do Curso: " + cursos[i].nome);
+            System.out.println("Duração do Curso: " + cursos[i].duracao);
+            System.out.println("Modalidade do Curso: " + cursos[i].modalidade);
+        }
+    }
     private static void exibirTurma() {
         
         for (int i = 0; i < quantidadeDeTurma; i++) {
@@ -204,7 +216,20 @@ public class App {
 
 
     private static void cadastrarAluno() {
-
+        teclado.nextLine();
+        Aluno aluno = new aluno();
+        System.out.println("Digite o nome do aluno: ");
+        aluno.nome = teclado.nextLine();
+        System.out.println("Digite o CPF do alunos: ");
+        aluno.cpf = teclado.nextLine();
+        System.out.println("Digite o Telefone do Aluno: ");
+        aluno.telefone = teclado.nextLine();
+        System.out.println("Digite o Endereço do Aluno: ");
+        aluno.endereco = teclado.nextLine();
+        System.out.println("Digite a Data de nascimento do Aluno: ");
+        aluno.dataNascimento = teclado.nextLine();
+        alunos[quantidadeDeAlunos] = aluno;
+        quantidadeDeAlunos++;
     }
 
     

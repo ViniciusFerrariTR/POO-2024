@@ -5,3 +5,4 @@ public class Aluno {
     String endereco;
     String dataNascimento;
 }
+
