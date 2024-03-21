@@ -8,7 +8,7 @@ public class App {
     static Curso[] cursos = new Curso[50];
     static int quantidadeDeCursos = 0;
     static Matricula[] matriculas = new Matricula[50];
-    static int quantidadeDeMatricula = 0;
+    static int quantidadeDeMatriculas = 0;
     static Aluno[] alunos = new Aluno[50];
     static int quantidadeDeAlunos = 0;
     static Scanner teclado = new Scanner(System.in);
@@ -33,6 +33,10 @@ public class App {
 
         } while (opcao != 0);
     }
+
+
+    /* ROTEADORES */
+
 
     public static void roteador(int opcao) {
         switch (opcao) {
@@ -71,7 +75,7 @@ public class App {
                 exibirCurso();
                 break;
             case 3:
-
+                exibirMatricula();
                 break;
             case 4:
 
@@ -89,6 +93,15 @@ public class App {
                 break;
         }
     }
+
+    /* ROTEADORES ACABA AQUI*/
+
+
+
+
+
+
+
 
     /* FUNÇÕES PARA EXIBIÇAO DAS LISTAS */
     private static void exibirCampo() {
@@ -108,6 +121,16 @@ public class App {
             System.out.println("Nome do Curso: " + cursos[i].nome);
             System.out.println("Duração do Curso: " + cursos[i].duracao);
             System.out.println("Modalidade do Curso: " + cursos[i].modalidade);
+        }
+    }
+
+    private static void exibirMatricula() {
+
+        for (int i = 0; i < quantidadeDeMatriculas; i++) {
+            System.out.println("Matriculas Cadastradas:");
+            System.out.println("R.A da matricula: " + matriculas[i].ra);
+            System.out.println("Data de matricula: " + matriculas[i].data);
+            System.out.println("Situação da matricula: " + matriculas[i].situacaoDaMatricula);
         }
     }
     private static void exibirTurma() {
@@ -155,11 +178,36 @@ public class App {
         quantidadeDeCursos++;
     }
 
-    private static void cadastrarAluno() {
+    private static void cadastrarMatricula() {
+        teclado.nextLine();
+        Matricula matricula = new Matricula();
+        System.out.println("Digite o R.A da matricula: ");
+        matricula.ra = teclado.nextLine();
+        System.out.println("Digite a data da matricula: ");
+        matricula.data = teclado.nextLine();
+        System.out.println("Digite a Situação da matricula (1 - PARA ATIVA / 0 - PARA NÃO ATIVA): ");
+        matricula.situacao = teclado.nextInt();
+        if (matricula.situacao == 1) {
+            String situacaoDaMatricula;
+            matricula.situacaoDaMatricula = "Ativa";
+        }
+        else if(matricula.situacao == 0){
+            String situacaoDaMatricula;
+            matricula.situacaoDaMatricula = "Desativada";
+        }
+        else{
+            System.out.println("Opção invalida");
+        }
+        matriculas[quantidadeDeMatriculas] = matricula;
+        quantidadeDeMatriculas++;
     }
 
-    private static void cadastrarMatricula() {
+
+    private static void cadastrarAluno() {
+
     }
+
+    
 
     
     private static void cadastrarTurma() {
@@ -189,11 +237,12 @@ public class App {
     /* MENUS */
     public static void exibirMenu() {
         System.out.println("******************************");
+        System.out.println("|----- Menu de Cadastro -----|");
         System.out.println("| Digite o valor desejado:   |");
         System.out.println("| 1 - Campus                 |");
         System.out.println("| 2 - Curso                  |");
         System.out.println("| 3 - Matricula              |");
-        System.out.println("| 4 - Estudante              |");
+        System.out.println("| 4 - Aluno                  |");
         System.out.println("| 5 - Turma                  |");
         System.out.println("| 6 - Exibir menu de listas  |");
         System.out.println("| 0 - Sair                   |");
@@ -203,6 +252,7 @@ public class App {
 
     public static void exibirListaCadastro(){
         System.out.println("**********************************************");
+        System.out.println("|-------------- Menu de Listas --------------|");
         System.out.println("| Digite o valor desejado:                   |");
         System.out.println("| 1 - Exibir lista de Campus                 |");
         System.out.println("| 2 - Exibir lista de Curso                  |");
