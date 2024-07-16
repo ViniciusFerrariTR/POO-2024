@@ -3,4 +3,5 @@ public class Livro {
     String autor;
     String editora;
     String categoria;
+    boolean situacao;
 }

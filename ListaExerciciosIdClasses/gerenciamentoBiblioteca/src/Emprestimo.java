@@ -1,6 +1,7 @@
 public class Emprestimo {
-    String idUsuario;
+    Livro livro;
+    Usuario idUsuario;
     String dataRetirada;
     String dataDevolucao;
-    String 
+    String status;
 }
